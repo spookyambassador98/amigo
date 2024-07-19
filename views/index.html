@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/index.css">
+    <title>ESP32 Control</title>
+</head>
+<body>
+    <h1>ESP32 Servo Control</h1>
+    <div style="text-align:center;">
+        <button onclick="sendRequest('/forward')">Forward</button>
+        <button onclick="sendRequest('/back')">Back</button>
+        <button onclick="sendRequest('/stop')">Stop</button>
+        <p id="status"></p>
+    </div>
+    <script>
+        function sendRequest(path) {
+            fetch('http://10.0.0.242' + path)
+                .then(response => response.text())
+                .then(text => document.getElementById('status').innerHTML = text)
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
