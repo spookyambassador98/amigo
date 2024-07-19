@@ -24,7 +24,5 @@ app.get('/', (req, res) => {
 app.listen(port, async () => {
     console.log(`Server is running at http://localhost:${port}`);
     
-    // Optionally, start ngrok here
-    const url = await ngrok.connect(port);
-    console.log(`ngrok tunnel opened at: ${url}`);
+
 });
