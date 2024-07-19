@@ -1,4 +1,14 @@
 body {
-    background-color: black;
-  }
-  
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #333;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer;
+}
