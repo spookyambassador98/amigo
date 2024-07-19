@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const port = process.env.PORT || 3333;
 const cors = require('cors');
-const ngrok = require('ngrok');
 
 // Serve static files from the 'public' directory
 app.use('/public', express.static(path.join(__dirname, 'public')));
@@ -21,8 +20,6 @@ app.get('/', (req, res) => {
 });
 
 // Start the server
-app.listen(port, async () => {
+app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
-    
-
 });
