@@ -9,14 +9,16 @@
 <body>
     <h1>ESP32 Servo Control</h1>
     <div style="text-align:center;">
-        <button onclick="sendRequest('/esp32/forward')">Forward</button>
-        <button onclick="sendRequest('/esp32/back')">Back</button>
-        <button onclick="sendRequest('/esp32/stop')">Stop</button>
+        <button onclick="sendRequest('/forward')">Forward</button>
+        <button onclick="sendRequest('/back')">Back</button>
+        <button onclick="sendRequest('/stop')">Stop</button>
         <p id="status"></p>
     </div>
     <script>
+        const esp32Url = 'https://7caf-2601-183-857e-28f0-19c4-8291-94b9-f6b8.ngrok-free.app';
+
         function sendRequest(path) {
-            fetch('http://10.0.0.242' + path)
+            fetch(esp32Url + path)
                 .then(response => response.text())
                 .then(text => document.getElementById('status').innerHTML = text)
                 .catch(error => console.error('Error:', error));
